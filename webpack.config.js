@@ -8,7 +8,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'), // at which place our bundles should be placed in folder dist,
         filename: 'bundle.js', // name of the file to be output
-        chunkFilename:'[id].js',// this is generated 
+        chunkFilename: '[id].js',// this is generated 
         publicPath: ''
     },
     resolve: {
@@ -29,9 +29,9 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                             importLoaders: 1,
+                            //importLoaders: 1,
                             //modules: true,//  this  enables css modules
-                            localIdentName: '[name]__[local]__[hash:base64:5]' // how generated classes by css modules look like 
+                            //localIdentName: '[name]__[local]__[hash:base64:5]' // how generated classes by css modules look like 
                         }
                     }, // this tells webpack what to do with .css files
                     {
@@ -53,16 +53,16 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test:/\.(png|jpe?g|gif)$/,
-                loader:'url-loader?limit=800000&name=images/[name].[ext]'// [name].[ext] are the placeholders which will copy the files as it is in images folder of dist folder
+                test: /\.(png|jpe?g|gif)$/,
+                loader: 'url-loader?limit=800000&name=images/[name].[ext]'// [name].[ext] are the placeholders which will copy the files as it is in images folder of dist folder
             }
         ]
     },
-    plugins:[
+    plugins: [
         new htmlWebpackPlugin({
-            template: __dirname+'/src/index.html',
-            filename:'index.html',
-            inject:'body'
+            template: __dirname + '/src/index.html',
+            filename: 'index.html',
+            inject: 'body'
         })
     ]
 };
